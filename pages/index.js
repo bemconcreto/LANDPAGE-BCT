@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <link rel="icon" type="logo-bct2.png" href="/favicon.png" />
+        <link rel="icon" type="logo-bct2.png" href="/logo-bct2.png" />
         <title>Bem Concreto — Como quer ganhar dinheiro com o BCT?</title>
         <meta
           name="description"
