@@ -84,10 +84,10 @@ export default function Home() {
     <>
       <Head>
         <link rel="icon" type="image/png" href="/logo-bct2.png" />
-        <title>Bem Concreto — Como quer ganhar dinheiro com o BCT?</title>
+        <title>Bem Concreto — Como quer ganhar dinheiro com o BEM?</title>
         <meta
           name="description"
-          content="Portal oficial Bem Concreto — escolha investir ou vender BCT. Saiba como funciona, timeline e FAQ."
+          content="Portal oficial Bem Concreto — escolha investir ou vender BEM. Saiba como funciona, timeline e FAQ."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -173,7 +173,7 @@ export default function Home() {
             >
               COMO VOCÊ QUER{" "}
               <span className="highlight">GANHAR DINHEIRO</span>
-              {" "}COM O BCT?
+              {" "}COM O BEM?
             </motion.h1>
 
             <motion.p
@@ -248,7 +248,7 @@ export default function Home() {
               variants={fadeUp}
             >
               <span className="section-label">Como funciona</span>
-              <h2 className="section-title">Três caminhos para crescer com o BCT</h2>
+              <h2 className="section-title">Três caminhos para crescer com o BEM</h2>
               <p className="section-subtitle">
                 Escolha investir, entender ou vender — e comece sua jornada no mercado imobiliário tokenizado.
               </p>
@@ -267,15 +267,15 @@ export default function Home() {
                 </div>
                 <h4>INVESTINDO</h4>
                 <p>
-                  Invista em ativos reais, imóveis prontos, lançamentos e incorporações por meio do Bem Concreto Token (BCT).
+                  Invista em ativos reais, imóveis prontos, lançamentos e incorporações por meio do Bem Concreto Token (BEM).
                 </p>
               </motion.article>
 
               <motion.article className="feature-card" variants={fadeUp}>
                 <div className="icon-hex">
-                  <img src="/icon-bct.png" alt="Ícone BCT" className="icon-img" />
+                  <img src="/icon-bct.png" alt="Ícone BEM" className="icon-img" />
                 </div>
-                <h4>O QUE É O BCT?</h4>
+                <h4>O QUE É O BEM?</h4>
                 <p>
                   A maior moeda imobiliária, criada para dar liquidez, segurança e rentabilidade ao mercado de imóveis.
                 </p>
@@ -302,12 +302,12 @@ export default function Home() {
               viewport={{ once: true, margin: "-80px" }}
               variants={scaleIn}
             >
-              <h3>O QUE É O BCT?</h3>
+              <h3>O QUE É O BEM?</h3>
               <p className="muted">
-                Já imaginou participar da valorização de todos os imóveis que o BCT adquire?
+                Já imaginou participar da valorização de todos os imóveis que o BEM adquire?
                 Com o Bem Concreto Token isso acontece na prática.{"\n\n"}
-                O BCT é uma moeda digital lastreada em ativos reais.
-                Cada imóvel comprado e tokenizado aumenta o ecossistema e valoriza automaticamente seus BCTs.
+                O BEM é uma moeda digital lastreada em ativos reais.
+                Cada imóvel comprado e tokenizado aumenta o ecossistema e valoriza automaticamente seus BEMs.
               </p>
             </motion.div>
           </section>
@@ -324,7 +324,7 @@ export default function Home() {
                 <span className="section-label">Portfólio</span>
                 <h2 className="section-title">Imóveis dentro da nossa Pool</h2>
                 <p className="section-subtitle">
-                  Cada imóvel adquirido fortalece o ecossistema BCT e valoriza seu investimento automaticamente.
+                  Cada imóvel adquirido fortalece o ecossistema BEM e valoriza seu investimento automaticamente.
                 </p>
               </motion.div>
             </div>
@@ -471,12 +471,12 @@ export default function Home() {
             >
               <motion.details variants={fadeUp}>
                 <summary>Qual investimento mínimo?</summary>
-                <p>A partir de R$100,00 você já compra BCTs e começa a participar da valorização dos imóveis da pool.</p>
+                <p>A partir de R$100,00 você já compra BEMs e começa a participar da valorização dos imóveis da pool.</p>
               </motion.details>
 
               <motion.details variants={fadeUp}>
-                <summary>Qual a rentabilidade do BCT?</summary>
-                <p>O BCT valoriza com o mercado cripto e imobiliário. Nossos imóveis já registram rentabilidades de até 300%.</p>
+                <summary>Qual a rentabilidade do BEM?</summary>
+                <p>O BEM valoriza com o mercado cripto e imobiliário. Nossos imóveis já registram rentabilidades de até 300%.</p>
               </motion.details>
 
               <motion.details variants={fadeUp}>
@@ -503,7 +503,7 @@ export default function Home() {
               viewport={{ once: true, margin: "-80px" }}
               variants={fadeUp}
             >
-              <h2>Pronto para começar com o BCT?</h2>
+              <h2>Pronto para começar com o BEM?</h2>
               <p>Escolha investir, vender — ou os dois. Sua jornada começa agora.</p>
               <div className="cta-row">
                 <a className="btn btn--primary" href="https://app.bemconcreto.com" target="_blank" rel="noreferrer">
