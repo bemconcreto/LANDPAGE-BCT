@@ -49,7 +49,7 @@ const DOCUMENTOS_HOME = [
   { titulo: "Termos de Uso", arquivo: "/docs/termos-de-uso.pdf" },
   { titulo: "Política de Privacidade", arquivo: "/docs/politica-privacidade.pdf" },
   { titulo: "Aviso de Riscos", arquivo: "/docs/aviso-riscos.pdf" },
-  { titulo: "Documento Mestre BCT", arquivo: "/docs/documento-mestre-bct.pdf" },
+  { titulo: "Documento Mestre BEM", arquivo: "/docs/documento-mestre-bct.pdf" },
   { titulo: "Estatuto dos Conselhos Institucionais", arquivo: "/docs/estatuto-conselhos-institucionais.pdf" },
   { titulo: "Estatuto Operacional", arquivo: "/docs/estatuto-operacional.pdf" },
   { titulo: "Memorando de Captação", arquivo: "/docs/memorando-captacao.pdf" },
