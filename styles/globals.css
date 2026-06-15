@@ -753,6 +753,200 @@ body {
   border: 1px solid rgba(201,168,124,0.2);
   color: var(--bc-gold-light);
 }
+.pool-location {
+  font-size: 13px;
+  color: var(--muted);
+  margin: -10px 0 12px;
+}
+.pool-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.pool-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* =========================================================
+   DOCUMENTOS — TRANSPARÊNCIA
+   ========================================================= */
+.docs-section {
+  position: relative;
+  z-index: 2;
+  padding: 60px 0 100px;
+}
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.doc-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 32px 20px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: var(--transition);
+}
+.doc-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201,168,124,0.2);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+}
+.doc-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+.doc-card h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+  line-height: 1.4;
+}
+.doc-link {
+  font-size: 13px;
+  color: var(--bc-gold-light);
+  font-weight: 600;
+}
+
+/* =========================================================
+   PÁGINAS DE IMÓVEIS (/imoveis e /imoveis/[slug])
+   ========================================================= */
+.page-header {
+  position: relative;
+  z-index: 2;
+  padding: 160px 0 60px;
+  text-align: center;
+}
+.imoveis-empty {
+  text-align: center;
+  color: var(--muted);
+  font-size: 16px;
+  padding: 40px 0 80px;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--bc-gold-light);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  transition: var(--transition);
+}
+.back-link:hover { color: var(--bc-gold); }
+
+.imovel-detail {
+  position: relative;
+  z-index: 2;
+  padding: 140px 0 100px;
+}
+.imovel-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 64px;
+}
+.imovel-detail-img {
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+}
+.imovel-detail-info { text-align: left; }
+.imovel-detail-info .section-title { margin-bottom: 8px; }
+.imovel-detail-info .muted {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.imovel-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.imovel-kpi {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+}
+.imovel-kpi span {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.imovel-kpi strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--bc-gold-light);
+}
+.imovel-docs {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 48px;
+}
+.imovel-docs .section-title {
+  font-size: clamp(22px, 3vw, 30px);
+  margin-bottom: 24px;
+}
+.doc-category { margin-bottom: 24px; }
+.doc-category-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--bc-gold);
+  margin: 0 0 10px;
+}
+.doc-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.doc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--bc-brown-1), var(--bc-brown-3));
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+.doc-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,168,124,0.25);
+}
+.imovel-docs-empty {
+  color: var(--muted);
+  font-size: 14px;
+}
 
 /* =========================================================
    CONTENT BLOCK — IMAGE + TEXT
@@ -792,6 +986,33 @@ body {
   background-size: cover;
   background-position: center;
   display: block;
+}
+.content-img-placeholder {
+  width: 100%;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bc-dark-2) 0%, var(--bc-dark-3) 50%, rgba(201,168,124,0.18) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.content-img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.content-img-icon {
+  position: relative;
+  z-index: 1;
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 32px rgba(212,168,83,0.35));
 }
 .content-text {
   text-align: left;
@@ -1003,6 +1224,88 @@ body {
 }
 
 /* =========================================================
+   CONSELHO CONSULTIVO
+   ========================================================= */
+.advisors-section {
+  position: relative;
+  z-index: 2;
+  padding: 100px 0;
+}
+.advisors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.advisor-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: left;
+  backdrop-filter: blur(12px);
+  transition: var(--transition);
+}
+.advisor-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201,168,124,0.2);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.advisor-area {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--bc-gold);
+  margin-bottom: 10px;
+}
+.advisor-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 10px;
+}
+.advisor-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* =========================================================
+   WHATSAPP FLUTUANTE
+   ========================================================= */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  z-index: 150;
+  transition: var(--transition);
+}
+.whatsapp-float:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 12px 36px rgba(37, 211, 102, 0.5);
+}
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+  color: var(--white);
+}
+
+/* =========================================================
    FOOTER BOTTOM
    ========================================================= */
 .footer-bottom {
@@ -1025,6 +1328,12 @@ body {
   font-size: 13px;
   margin: 0;
 }
+.footer-bottom-inner > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
 .footer-links {
   display: flex;
   gap: 24px;
@@ -1043,6 +1352,11 @@ body {
 @media (max-width: 980px) {
   .feature-cards { grid-template-columns: 1fr; gap: 16px; }
   .pool-wrapper { grid-template-columns: 1fr; gap: 16px; }
+  .docs-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .advisors-grid { grid-template-columns: repeat(2, 1fr); }
+  .imovel-detail-grid { grid-template-columns: 1fr; gap: 28px; }
+  .imovel-detail-info { text-align: center; }
+  .imovel-kpi-grid { grid-template-columns: repeat(2, 1fr); }
   .content-grid { grid-template-columns: 1fr; gap: 32px; }
   .content-text { text-align: center; }
   .duo-wrapper { grid-template-columns: 1fr; }
@@ -1077,4 +1391,8 @@ body {
   .hero__content { padding: 100px 20px 60px; }
   .banner-dark { margin: 0 16px; padding: 48px 24px; }
   .pool-wrapper { padding: 0 16px; }
+  .docs-grid { grid-template-columns: 1fr; padding: 0 16px; }
+  .advisors-grid { grid-template-columns: 1fr; padding: 0 16px; }
+  .whatsapp-float { width: 50px; height: 50px; bottom: 16px; right: 16px; }
+  .whatsapp-float svg { width: 26px; height: 26px; }
 }

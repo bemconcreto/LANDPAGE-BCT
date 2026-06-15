@@ -1,6 +1,74 @@
 import Head from "next/head";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import { getImoveis, formatReal, getRoiInfo } from "../lib/cerebro";
+import SiteFooter from "../components/SiteFooter";
+
+const FALLBACK_IMAGES = ["/imagem-2.jpg", "/imagem-3.jpg", "/imagem-4.jpg"];
+
+const FALLBACK_IMOVEIS = [
+  {
+    slug: null,
+    nome: "Casa térrea em condomínio",
+    localizacao: "",
+    valorCompra: 1100000,
+    valorMercado: 1600000,
+    valorizacaoAcumulada: 0.4545,
+    roiProjetado: null,
+    roiRealizado: null,
+    imagemUrl: "/imagem-4.jpg",
+  },
+  {
+    slug: null,
+    nome: "Studio Zona Sul SP",
+    localizacao: "",
+    valorCompra: 175100,
+    valorMercado: 278100,
+    valorizacaoAcumulada: 0.5877,
+    roiProjetado: null,
+    roiRealizado: null,
+    imagemUrl: "/imagem-2.jpg",
+  },
+  {
+    slug: null,
+    nome: "Participação em incorporação",
+    localizacao: "",
+    valorCompra: 2000000,
+    valorMercado: 8000000,
+    valorizacaoAcumulada: 3,
+    roiProjetado: null,
+    roiRealizado: null,
+    imagemUrl: "/imagem-3.jpg",
+  },
+];
+
+const DOCUMENTOS_HOME = [
+  { titulo: "Whitepaper BEM", arquivo: "/docs/whitepaper-bem.pdf" },
+  { titulo: "Contrato de Adesão", arquivo: "/docs/contrato-adesao.pdf" },
+  { titulo: "Termos de Uso", arquivo: "/docs/termos-de-uso.pdf" },
+  { titulo: "Política de Privacidade", arquivo: "/docs/politica-privacidade.pdf" },
+  { titulo: "Aviso de Riscos", arquivo: "/docs/aviso-riscos.pdf" },
+];
+
+const CONSELHEIROS = [
+  {
+    area: "Governança",
+    descricao: "Supervisiona regras, políticas e a conformidade do ecossistema BEM.",
+  },
+  {
+    area: "Tecnológico",
+    descricao: "Conduz a infraestrutura blockchain, segurança e evolução do token.",
+  },
+  {
+    area: "Jurídico",
+    descricao: "Acompanha a estrutura legal, contratos e conformidade regulatória.",
+  },
+  {
+    area: "Financeiro",
+    descricao: "Gerencia tesouraria, precificação e a saúde financeira da pool.",
+  },
+];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -58,10 +126,17 @@ function CountUp({ target, suffix = "", duration = 2000 }) {
   );
 }
 
-export default function Home() {
+export async function getServerSideProps() {
+  const imoveis = await getImoveis();
+  return { props: { imoveis } };
+}
+
+export default function Home({ imoveis }) {
   const { scrollYProgress } = useScroll();
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const poolImoveis = imoveis && imoveis.length > 0 ? imoveis.slice(0, 3) : FALLBACK_IMOVEIS;
 
   // Força scroll pro topo ao carregar/recarregar
   useEffect(() => {
@@ -322,9 +397,9 @@ export default function Home() {
                 variants={fadeUp}
               >
                 <span className="section-label">Portfólio</span>
-                <h2 className="section-title">Imóveis dentro da nossa Pool</h2>
+                <h2 className="section-title">Imóveis Tokenizados na nossa Pool</h2>
                 <p className="section-subtitle">
-                  Cada imóvel adquirido fortalece o ecossistema BEM e valoriza seu investimento automaticamente.
+                  Cada imóvel adquirido fortalece o ecossistema BEM e valoriza seu investimento automaticamente. Confira valor de aquisição, valor de mercado e ROI de cada ativo.
                 </p>
               </motion.div>
             </div>
@@ -336,41 +411,86 @@ export default function Home() {
               viewport={{ once: true, margin: "-50px" }}
               variants={stagger}
             >
-              <motion.div className="pool-card" variants={fadeUp}>
-                <div className="pool-img-wrap">
-                  <div className="pool-img" style={{ backgroundImage: "url('/imagem-4.jpg')" }} />
-                </div>
-                <div className="pool-body">
-                  <h3 className="pool-title">Casa térrea em condomínio</h3>
-                  <p className="pool-info"><b>Valor investido:</b> R$ 1.100.000,00</p>
-                  <p className="pool-info"><b>Valor mercado:</b> R$ 1.600.000,00</p>
-                  <div className="pool-rent">Rentabilidade: 45%</div>
-                </div>
-              </motion.div>
+              {poolImoveis.map((imovel, index) => {
+                const { label: roiLabel } = getRoiInfo(imovel);
+                const imagem = imovel.imagemUrl || FALLBACK_IMAGES[index % FALLBACK_IMAGES.length];
 
-              <motion.div className="pool-card" variants={fadeUp}>
-                <div className="pool-img-wrap">
-                  <div className="pool-img" style={{ backgroundImage: "url('/imagem-2.jpg')" }} />
-                </div>
-                <div className="pool-body">
-                  <h3 className="pool-title">Studio Zona Sul SP</h3>
-                  <p className="pool-info"><b>Valor investido:</b> R$ 175.100,00</p>
-                  <p className="pool-info"><b>Valor mercado:</b> R$ 278.100,00</p>
-                  <div className="pool-rent">Rentabilidade: 59%</div>
-                </div>
-              </motion.div>
+                const card = (
+                  <motion.div className="pool-card" variants={fadeUp}>
+                    <div className="pool-img-wrap">
+                      <div className="pool-img" style={{ backgroundImage: `url('${imagem}')` }} />
+                    </div>
+                    <div className="pool-body">
+                      <h3 className="pool-title">{imovel.nome}</h3>
+                      {imovel.localizacao && <p className="pool-location">{imovel.localizacao}</p>}
+                      <p className="pool-info"><b>Valor de aquisição:</b> {formatReal(imovel.valorCompra)}</p>
+                      <p className="pool-info"><b>Valor de mercado:</b> {formatReal(imovel.valorMercado)}</p>
+                      <div className="pool-rent">{roiLabel}</div>
+                    </div>
+                  </motion.div>
+                );
 
-              <motion.div className="pool-card" variants={fadeUp}>
-                <div className="pool-img-wrap">
-                  <div className="pool-img" style={{ backgroundImage: "url('/imagem-3.jpg')" }} />
-                </div>
-                <div className="pool-body">
-                  <h3 className="pool-title">Participação em incorporação</h3>
-                  <p className="pool-info"><b>Valor investido:</b> R$ 2.000.000,00</p>
-                  <p className="pool-info"><b>Valor mercado:</b> R$ 8.000.000,00</p>
-                  <div className="pool-rent">Rentabilidade: 300%</div>
-                </div>
+                return imovel.slug ? (
+                  <Link href={`/imoveis/${imovel.slug}`} className="pool-card-link" key={imovel.slug}>
+                    {card}
+                  </Link>
+                ) : (
+                  <div key={imovel.nome}>{card}</div>
+                );
+              })}
+            </motion.div>
+
+            <motion.div
+              className="pool-cta"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeUp}
+            >
+              <Link href="/imoveis" className="btn btn--primary">
+                Ver todos os imóveis <span>→</span>
+              </Link>
+            </motion.div>
+          </section>
+
+          {/* DOCUMENTOS — TRANSPARÊNCIA */}
+          <section className="docs-section" id="documentos">
+            <div className="container">
+              <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-80px" }}
+                variants={fadeUp}
+              >
+                <span className="section-label">Transparência</span>
+                <h2 className="section-title">Documentos do Ecossistema BEM</h2>
+                <p className="section-subtitle">
+                  Acesse os principais documentos institucionais e jurídicos do Bem Concreto Token.
+                </p>
               </motion.div>
+            </div>
+
+            <motion.div
+              className="docs-grid"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={stagger}
+            >
+              {DOCUMENTOS_HOME.map((doc) => (
+                <motion.a
+                  key={doc.arquivo}
+                  href={doc.arquivo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="doc-card"
+                  variants={fadeUp}
+                >
+                  <div className="doc-icon">📄</div>
+                  <h4>{doc.titulo}</h4>
+                  <span className="doc-link">Abrir documento →</span>
+                </motion.a>
+              ))}
             </motion.div>
           </section>
 
@@ -384,7 +504,9 @@ export default function Home() {
                 viewport={{ once: true, margin: "-80px" }}
                 variants={slideLeft}
               >
-                <div className="content-img" style={{ backgroundImage: "url('/imagem-5.jpg')" }} />
+                <div className="content-img-placeholder">
+                  <img src="/icon-bct.png" alt="Tokenização imobiliária BEM" className="content-img-icon" />
+                </div>
               </motion.div>
 
               <motion.div
@@ -444,6 +566,38 @@ export default function Home() {
                   Quero vender <span>→</span>
                 </a>
               </motion.div>
+            </motion.div>
+          </section>
+
+          {/* CONSELHO CONSULTIVO */}
+          <section className="advisors-section container">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+            >
+              <span className="section-label">Conselho Consultivo</span>
+              <h2 className="section-title">Quem orienta o ecossistema BEM</h2>
+              <p className="section-subtitle">
+                Quatro frentes especializadas garantem governança, segurança e solidez para investidores e consultores.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="advisors-grid"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={stagger}
+            >
+              {CONSELHEIROS.map((conselheiro) => (
+                <motion.div className="advisor-card" variants={fadeUp} key={conselheiro.area}>
+                  <span className="advisor-area">{conselheiro.area}</span>
+                  <h4 className="advisor-name">A definir</h4>
+                  <p>{conselheiro.descricao}</p>
+                </motion.div>
+              ))}
             </motion.div>
           </section>
 
@@ -518,16 +672,7 @@ export default function Home() {
         </section>
 
         {/* FOOTER BOTTOM */}
-        <footer className="footer-bottom">
-          <div className="footer-bottom-inner">
-            <p className="small">© {new Date().getFullYear()} Bem Concreto — Todos os direitos reservados</p>
-            <div className="footer-links">
-              <a href="#">Termos</a>
-              <a href="#">Privacidade</a>
-              <a href="#">Contato</a>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );
