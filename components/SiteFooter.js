@@ -9,9 +9,9 @@ export default function SiteFooter() {
           <p className="small">CNPJ: 37.566.745/0001-22</p>
         </div>
         <div className="footer-links">
-          <a href="#">Termos</a>
-          <a href="#">Privacidade</a>
-          <a href="#">Contato</a>
+          <a href="/termos">Termos</a>
+          <a href="/privacidade">Privacidade</a>
+          <a href="https://wa.me/5511965862850" target="_blank" rel="noreferrer">Contato</a>
         </div>
       </div>
     </footer>

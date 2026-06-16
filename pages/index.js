@@ -44,11 +44,11 @@ const FALLBACK_IMOVEIS = [
 ];
 
 const DOCUMENTOS_HOME = [
-  { titulo: "Whitepaper BEM", arquivo: "/docs/whitepaper-bem.pdf" },
-  { titulo: "Contrato de Adesão", arquivo: "/docs/contrato-adesao.pdf" },
-  { titulo: "Termos de Uso", arquivo: "/docs/termos-de-uso.pdf" },
-  { titulo: "Política de Privacidade", arquivo: "/docs/politica-privacidade.pdf" },
-  { titulo: "Aviso de Riscos", arquivo: "/docs/aviso-riscos.pdf" },
+  { titulo: "Whitepaper BEM", arquivo: "/whitepaper" },
+  { titulo: "Contrato de Adesão", arquivo: "/contrato-adesao" },
+  { titulo: "Termos de Uso", arquivo: "/termos" },
+  { titulo: "Política de Privacidade", arquivo: "/privacidade" },
+  { titulo: "Aviso de Riscos", arquivo: "/aviso-riscos" },
   { titulo: "Documento Mestre BEM", arquivo: "/docs/documento-mestre-bct.pdf" },
   { titulo: "Estatuto dos Conselhos Institucionais", arquivo: "/docs/estatuto-conselhos-institucionais.pdf" },
   { titulo: "Estatuto Operacional", arquivo: "/docs/estatuto-operacional.pdf" },
@@ -302,7 +302,7 @@ export default function Home({ imoveis }) {
               <div className="stat-label">Imóveis na Pool</div>
             </motion.div>
             <motion.div className="stat-item" variants={fadeUp}>
-              <CountUp target={300} suffix="%" />
+              <CountUp target={120} suffix="%" />
               <div className="stat-label">Maior Rentabilidade</div>
             </motion.div>
             <motion.div className="stat-item" variants={fadeUp}>
@@ -635,7 +635,7 @@ export default function Home({ imoveis }) {
 
               <motion.details variants={fadeUp}>
                 <summary>Qual a rentabilidade do BEM?</summary>
-                <p>O BEM valoriza com o mercado cripto e imobiliário. Nossos imóveis já registram rentabilidades de até 300%.</p>
+                <p>O BEM valoriza com o mercado cripto e imobiliário. Nossos imóveis já registram rentabilidades de até 120%.</p>
               </motion.details>
 
               <motion.details variants={fadeUp}>
