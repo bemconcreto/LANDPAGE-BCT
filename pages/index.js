@@ -59,18 +59,30 @@ const DOCUMENTOS_HOME = [
 const CONSELHEIROS = [
   {
     area: "Governança",
+    nome: null,
+    credencial: null,
+    foto: null,
     descricao: "Supervisiona regras, políticas e a conformidade do ecossistema BEM.",
   },
   {
     area: "Tecnológico",
+    nome: null,
+    credencial: null,
+    foto: null,
     descricao: "Conduz a infraestrutura blockchain, segurança e evolução do token.",
   },
   {
     area: "Jurídico",
-    descricao: "Acompanha a estrutura legal, contratos e conformidade regulatória.",
+    nome: "Dr. Artur Moraes",
+    credencial: "Advogado | OAB/SP — desde 2007",
+    foto: "/conselheiros/artur-moraes.jpg",
+    descricao: "Especialista em Direito Civil, Processo Civil, LGPD e Direito Imobiliário. Garante a conformidade legal, contratos e segurança regulatória do ecossistema BEM.",
   },
   {
     area: "Financeiro",
+    nome: null,
+    credencial: null,
+    foto: null,
     descricao: "Gerencia tesouraria, precificação e a saúde financeira da pool.",
   },
 ];
@@ -164,12 +176,27 @@ export default function Home({ imoveis }) {
     <>
       <Head>
         <link rel="icon" type="image/png" href="/logo-bct2.png" />
-        <title>Bem Concreto — Como quer ganhar dinheiro com o BEM?</title>
-        <meta
-          name="description"
-          content="Portal oficial Bem Concreto — escolha investir ou vender BEM. Saiba como funciona, timeline e FAQ."
-        />
+        <title>Bem Concreto — Invista em Imóveis Tokenizados a partir de R$100</title>
+        <meta name="description" content="Invista em imóveis de alto padrão com o token BEM a partir de R$100. Tokenização imobiliária real, segura e acessível." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Bem Concreto" />
+        <meta property="og:url" content="https://www.bemconcreto.com" />
+        <meta property="og:title" content="Bem Concreto — Invista em Imóveis Tokenizados a partir de R$100" />
+        <meta property="og:description" content="Invista em imóveis de alto padrão com o token BEM a partir de R$100. Tokenização imobiliária real, segura e acessível." />
+        <meta property="og:image" content="https://www.bemconcreto.com/top-bg.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="pt_BR" />
+
+        {/* Twitter / X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@bemconcreto" />
+        <meta name="twitter:title" content="Bem Concreto — Invista em Imóveis Tokenizados a partir de R$100" />
+        <meta name="twitter:description" content="Invista em imóveis de alto padrão com o token BEM a partir de R$100. Tokenização imobiliária real, segura e acessível." />
+        <meta name="twitter:image" content="https://www.bemconcreto.com/top-bg.jpg" />
       </Head>
 
       <div className="page">
@@ -598,8 +625,14 @@ export default function Home({ imoveis }) {
             >
               {CONSELHEIROS.map((conselheiro) => (
                 <motion.div className="advisor-card" variants={fadeUp} key={conselheiro.area}>
+                  {conselheiro.foto && (
+                    <img src={conselheiro.foto} alt={conselheiro.nome} className="advisor-photo" />
+                  )}
                   <span className="advisor-area">{conselheiro.area}</span>
-                  <h4 className="advisor-name">A definir</h4>
+                  <h4 className="advisor-name">{conselheiro.nome || "A definir"}</h4>
+                  {conselheiro.credencial && (
+                    <p className="advisor-credencial">{conselheiro.credencial}</p>
+                  )}
                   <p>{conselheiro.descricao}</p>
                 </motion.div>
               ))}

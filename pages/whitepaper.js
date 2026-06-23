@@ -135,7 +135,7 @@ export default function Whitepaper() {
       <ul className="doc-list">
         <li><strong>Governança:</strong> supervisão de regras, políticas e conformidade do ecossistema</li>
         <li><strong>Tecnológico:</strong> infraestrutura blockchain, segurança e evolução do token</li>
-        <li><strong>Jurídico:</strong> estrutura legal, contratos e conformidade regulatória</li>
+        <li><strong>Jurídico — Dr. Artur Moraes (OAB/SP):</strong> estrutura legal, contratos, LGPD e conformidade regulatória</li>
         <li><strong>Financeiro:</strong> tesouraria, precificação e saúde financeira da pool</li>
       </ul>
 
