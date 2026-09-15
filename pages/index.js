@@ -156,6 +156,13 @@ export default function Home({ imoveis }) {
 
   const poolImoveis = imoveis && imoveis.length > 0 ? imoveis.slice(0, 3) : FALLBACK_IMOVEIS;
 
+  // Estatísticas da stats-bar calculadas a partir dos imóveis reais da pool
+  const totalImoveis = imoveis && imoveis.length > 0 ? imoveis.length : 3;
+  const maiorRentabilidade =
+    imoveis && imoveis.length > 0
+      ? Math.max(...imoveis.map((im) => getRoiInfo(im).value))
+      : 120;
+
   // Força scroll pro topo ao carregar/recarregar
   useEffect(() => {
     window.history.scrollRestoration = "manual";
@@ -326,11 +333,11 @@ export default function Home({ imoveis }) {
             variants={stagger}
           >
             <motion.div className="stat-item" variants={fadeUp}>
-              <CountUp target={3} suffix="+" />
+              <CountUp target={totalImoveis} suffix="+" />
               <div className="stat-label">Imóveis na Pool</div>
             </motion.div>
             <motion.div className="stat-item" variants={fadeUp}>
-              <CountUp target={120} suffix="%" />
+              <CountUp target={maiorRentabilidade} suffix="%" />
               <div className="stat-label">Maior Rentabilidade</div>
             </motion.div>
             <motion.div className="stat-item" variants={fadeUp}>
@@ -401,7 +408,7 @@ export default function Home({ imoveis }) {
             </motion.div>
           </section>
 
-          {/* BANNER DARK — BCT */}
+          {/* BANNER DARK — BEM */}
           <section style={{ padding: "40px 28px" }}>
             <motion.div
               className="banner-dark"

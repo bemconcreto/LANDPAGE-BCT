@@ -8,6 +8,18 @@ export default function DocLayout({ titulo, versao, dataAtualizacao, children })
         <title>{titulo} — Bem Concreto</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/logo-bct2.png" />
+        <meta name="description" content={`${titulo} — Bem Concreto Token. Documentação oficial da plataforma de investimento imobiliário tokenizado.`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Bem Concreto" />
+        <meta property="og:title" content={`${titulo} — Bem Concreto`} />
+        <meta property="og:description" content={`${titulo} — Bem Concreto Token. Documentação oficial da plataforma de investimento imobiliário tokenizado.`} />
+        <meta property="og:image" content="https://www.bemconcreto.com/top-bg.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="pt_BR" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${titulo} — Bem Concreto`} />
+        <meta name="twitter:image" content="https://www.bemconcreto.com/top-bg.jpg" />
         <style>{`
           @media print {
             .no-print { display: none !important; }

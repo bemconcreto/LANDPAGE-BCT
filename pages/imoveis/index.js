@@ -33,6 +33,18 @@ export default function ImoveisPage({ imoveis }) {
           content="Conheça os imóveis tokenizados da pool Bem Concreto: valor de aquisição, valor de mercado, ROI e documentos."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Bem Concreto" />
+        <meta property="og:url" content="https://www.bemconcreto.com/imoveis" />
+        <meta property="og:title" content="Imóveis Tokenizados — Bem Concreto" />
+        <meta property="og:description" content="Conheça os imóveis tokenizados da pool Bem Concreto: valor de aquisição, valor de mercado, ROI e documentos." />
+        <meta property="og:image" content="https://www.bemconcreto.com/top-bg.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="pt_BR" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Imóveis Tokenizados — Bem Concreto" />
+        <meta name="twitter:image" content="https://www.bemconcreto.com/top-bg.jpg" />
       </Head>
 
       <div className="page">
