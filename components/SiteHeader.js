@@ -14,6 +14,11 @@ export default function SiteHeader() {
           <li><Link href="/" onClick={() => setMenuOpen(false)}>Início</Link></li>
           <li><Link href="/imoveis" onClick={() => setMenuOpen(false)}>Imóveis</Link></li>
           <li><Link href="/#faq" onClick={() => setMenuOpen(false)}>FAQ</Link></li>
+          <li className="navbar-links-cta-mobile">
+            <a href="https://app.bemconcreto.com" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>
+              Começar agora →
+            </a>
+          </li>
         </ul>
         <a
           className="navbar-cta"
